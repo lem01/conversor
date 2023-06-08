@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.conversor.adapter.CurrencyAdapter;
+import com.example.conversor.adapter.CurrencyList;
 import com.example.conversor.model.CurrencyModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -19,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton fab_add_currency;
     private RecyclerView recyclerView;
-    private CurrencyAdapter currencyAdapter;
     private List<CurrencyModel> currencyList;
 
     @Override
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             currencyList.add(currency);
         }
 
-        currencyAdapter = new CurrencyAdapter(currencyList);
-        recyclerView.setAdapter(currencyAdapter);
+        CurrencyList.currencyAdapter = new CurrencyAdapter(currencyList);
+        recyclerView.setAdapter(CurrencyList.currencyAdapter);
     }
 }
