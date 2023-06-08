@@ -1,6 +1,5 @@
 package com.example.conversor.model;
 
-
 public class CurrencyModel {
     private String countryPathImg;
     private String fullNameCurrency;

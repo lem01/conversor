@@ -27,7 +27,6 @@ public class AddCurrencyActivity extends AppCompatActivity {
     private TextInputEditText etSimbol;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
