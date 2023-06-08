@@ -17,7 +17,6 @@ import com.example.conversor.EditCurrencyActivity;
 import com.example.conversor.R;
 import com.example.conversor.model.CurrencyModel;
 
-import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
@@ -25,13 +24,13 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
 
 
 
-//    private List<CurrencyModel> currencyList;
+    private List<CurrencyModel> currencyList;
 //    private RecyclerView recyclerView;
 
 
     public CurrencyAdapter(List<CurrencyModel> currencyList) {
-        CurrencyList.currencyList = currencyList;
-//        this.recyclerView = recyclerView;
+//        CurrencyList.currencyList = currencyList;
+        this.currencyList = currencyList;
     }
 
     @NonNull
@@ -81,6 +80,23 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
     @Override
     public int getItemCount() {
         return CurrencyList.currencyList.size();
+    }
+
+
+    public void addCurrency(CurrencyModel currency) {
+        currencyList.add(currency);
+        notifyItemInserted(currencyList.size() - 1);
+    }
+
+    public void updateCurrency(CurrencyModel currency, int position) {
+        currencyList.set(position, currency);
+        notifyItemChanged(position);
+    }
+
+    public void deleteCurrency(int position) {
+        currencyList.remove(position);
+        notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 
     public static class CurrencyViewHolder extends RecyclerView.ViewHolder {

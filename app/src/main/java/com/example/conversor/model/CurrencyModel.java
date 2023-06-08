@@ -1,12 +1,25 @@
 package com.example.conversor.model;
 
-public class CurrencyModel {
+import java.util.UUID;
+
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class CurrencyModel extends RealmObject {
+
+    @PrimaryKey
+    private String id = UUID.randomUUID().toString();
     private String countryPathImg;
     private String fullNameCurrency;
     private String currency;
     private String country;
     private String symbol;
     private double amount;
+
+
+    public CurrencyModel() {
+        // Constructor vacío requerido por Realm
+    }
 
     public CurrencyModel(String countryPathImg, String fullNameCurrency, String currency, String country, String symbol, double amount) {
         this.countryPathImg = countryPathImg;
@@ -15,6 +28,12 @@ public class CurrencyModel {
         this.country = country;
         this.symbol = symbol;
         this.amount = amount;
+    }
+
+    public CurrencyModel(String fullNameCurrency, String country, String symbol) {
+        this.fullNameCurrency = fullNameCurrency;
+        this.country = country;
+        this.symbol = symbol;
     }
 
     public String getCountryPathImg() {
