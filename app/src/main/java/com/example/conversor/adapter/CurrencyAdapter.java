@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.conversor.DetailCurrencyActivity;
 import com.example.conversor.EditCurrencyActivity;
 import com.example.conversor.R;
 import com.example.conversor.model.CurrencyModel;
@@ -49,7 +50,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
 
 
 
-        String countryFullName = currency.getCountry() + "(" + currency.getFullNameCurrency()+")" ;
+        String countryFullName =  currency.getCountry() + "(" + currency.getFullNameCurrency()+")" ;
 
 
         holder.imageViewCountry.setImageResource(R.drawable.ic_baseline_image_24);
@@ -76,6 +77,16 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
             }
         });
 
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), DetailCurrencyActivity.class);
+
+                intent.putExtra("position", position);
+                v.getContext().startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -92,6 +103,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         TextView textViewAmount;
         ImageButton deleteCurrency;
         ImageButton btnEdit;
+        MaterialCardView cardView;
 
         public CurrencyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -103,6 +115,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
             textViewAmount = itemView.findViewById(R.id.tv_amount);
             deleteCurrency = itemView.findViewById(R.id.btn_delete_currency);
             btnEdit = itemView.findViewById(R.id.btn_edit_currency);
+            cardView = itemView.findViewById(R.id.card_currency_item);
         }
     }
 }

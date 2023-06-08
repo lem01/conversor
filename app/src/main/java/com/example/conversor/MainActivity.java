@@ -4,6 +4,7 @@ package com.example.conversor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,18 +61,33 @@ public class MainActivity extends AppCompatActivity {
     private void startLoadData() {
         currencyList = new ArrayList<>(); // Crea una nueva lista de monedas
 
-        // Agrega 10 elementos a la lista de monedas
-        for (int i = 0; i < 10; i++) {
-            CurrencyModel currency = new CurrencyModel(
-                    "path_img_",
-                    "Córdoba ",
-                    "NIO ",
-                    "Nicaragua " + i,
-                    "C$",
-                    5000.0
-            );
-            currencyList.add(currency);
-        }
+        currencyList.add(new CurrencyModel(
+                "path_img_",
+                "Córdoba ",
+                "NIO ",
+                "Nicaragua ",
+                "C$",
+                100.0
+        ));
+        currencyList.add(new CurrencyModel(
+                "path_img_",
+                "Dólar ",
+                "USD ",
+                "Estados Unidos ",
+                "C$",
+                100.0
+        ));
+        currencyList.add(new CurrencyModel(
+                "path_img_",
+                "Euros",
+                "EUR ",
+                "España       ",
+                "C$",
+                100.0
+        ));
+
+
+
 
         CurrencyList.currencyAdapter = new CurrencyAdapter(currencyList);
         recyclerView.setAdapter(CurrencyList.currencyAdapter);

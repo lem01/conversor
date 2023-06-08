@@ -13,9 +13,16 @@
         android:theme="@style/Theme.Conversor"
         tools:targetApi="31">
         <activity
-            android:name=".EditCurrencyActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".DetailCurrencyActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EditCurrencyActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
